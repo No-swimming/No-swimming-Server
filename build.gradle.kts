@@ -9,7 +9,7 @@ plugins {
     kotlin("kapt") version PluginVersions.KAPT_VERSION
 }
 
-group = "com.kotlin"
+group = "com.example"
 version = "0.0.1-SNAPSHOT"
 java.sourceCompatibility = JavaVersion.VERSION_17
 

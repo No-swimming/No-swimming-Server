@@ -1,5 +1,6 @@
 package com.example.noswimmingserver.infra.feign.client
 
+import com.example.noswimmingserver.infra.feign.dto.response.GoogleInfoResponse
 import org.springframework.cloud.openfeign.FeignClient
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable

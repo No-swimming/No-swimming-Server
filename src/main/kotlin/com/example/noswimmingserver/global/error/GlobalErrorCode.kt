@@ -15,4 +15,6 @@ enum class GlobalErrorCode(
 
     FEIGN_EXPIRED_TOKEN(419, "Feign Expired Token"),
 
+    INTERNAL_SERVER_ERROR(500, "Internal Server Error"),
+
 }

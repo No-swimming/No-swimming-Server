@@ -34,4 +34,7 @@ object Dependency {
 
     // property
     const val PROPERTIES_SCAN = "org.springframework.boot:spring-boot-configuration-processor"
+
+    // ktlint
+    const val KTLINT = "com.pinterest:ktlint:${DependencyVersion.KTLINT_VERSION}"
 }

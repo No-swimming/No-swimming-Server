@@ -10,6 +10,8 @@ enum class GlobalErrorCode(
     FEIGN_BAD_REQUEST(400, "Feign Bad Request"),
 
     FEIGN_UN_AUTHORIZED(401, "Feign Un Authorized"),
+    INVALID_TOKEN(401, "Invalid Token"),
+    EXPIRED_TOKEN(401, "Expired Token"),
 
     FEIGN_FORBIDDEN(403, "Feign ForBidden"),
 

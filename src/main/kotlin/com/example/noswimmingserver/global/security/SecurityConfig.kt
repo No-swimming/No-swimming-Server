@@ -4,6 +4,7 @@ import com.example.noswimmingserver.global.filter.FilterConfig
 import com.example.noswimmingserver.global.security.jwt.JwtParser
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.springframework.context.annotation.Bean
+import org.springframework.http.HttpMethod
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity
 import org.springframework.security.config.http.SessionCreationPolicy
@@ -29,6 +30,9 @@ class SecurityConfig(
             .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
         http
             .authorizeRequests()
+
+            .antMatchers(HttpMethod.GET,"/auth/link").permitAll()
+            .antMatchers(HttpMethod.GET,"/auth/google").permitAll()
 
             .anyRequest().denyAll()
 

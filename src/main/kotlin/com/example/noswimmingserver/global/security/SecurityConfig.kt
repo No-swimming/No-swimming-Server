@@ -31,8 +31,12 @@ class SecurityConfig(
         http
             .authorizeRequests()
 
-            .antMatchers(HttpMethod.GET,"/auth/link").permitAll()
-            .antMatchers(HttpMethod.GET,"/auth/google").permitAll()
+            // auth
+            .antMatchers(HttpMethod.GET, "/auth/link").permitAll()
+            .antMatchers(HttpMethod.GET, "/auth/google").permitAll()
+
+            // student
+            .antMatchers(HttpMethod.PUT, "/student").authenticated()
 
             .anyRequest().denyAll()
 

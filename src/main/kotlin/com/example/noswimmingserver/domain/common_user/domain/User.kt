@@ -33,5 +33,4 @@ class User(
     fun editName(name: String) {
         this.name = name
     }
-
 }

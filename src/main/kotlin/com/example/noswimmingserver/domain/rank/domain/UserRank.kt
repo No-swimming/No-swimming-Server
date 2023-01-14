@@ -20,11 +20,4 @@ class UserRank(
     @field:NotNull
     @Column(columnDefinition = "VARCHAR(5)")
     val name: String,
-
-    isRank: Int,
-) {
-
-    @field:NotNull
-    var isRank = isRank
-        protected set
-}
+)

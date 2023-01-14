@@ -30,4 +30,8 @@ class User(
     var name: String? = name
         protected set
 
+    fun editName(name: String) {
+        this.name = name
+    }
+
 }

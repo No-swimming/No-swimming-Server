@@ -7,5 +7,7 @@ enum class UserErrorCode(
     override val message: String
 ) : ErrorProperty {
 
+    INVALID_EMAIL(401, "Invalid Email"),
+
     USER_NOT_FOUND(404, "User Not Found"),
 }

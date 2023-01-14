@@ -12,7 +12,7 @@ class Student(
     val userId: Long,
 
     @MapsId
-    @OneToOne(fetch = FetchType.LAZY, cascade = [CascadeType.ALL])
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
     val user: User,
 

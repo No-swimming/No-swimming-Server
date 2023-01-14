@@ -44,4 +44,9 @@ class Student(
     var journalCount = journalCount
         protected set
 
+    fun editStudentGCN(grade: Int, classNum: Int, number: Int) {
+        this.grade = grade
+        this.classNum = classNum
+        this.number = number
+    }
 }

@@ -37,6 +37,7 @@ class SecurityConfig(
 
             // student
             .antMatchers(HttpMethod.PUT, "/student").authenticated()
+            .antMatchers(HttpMethod.DELETE, "/student").authenticated()
 
             .anyRequest().denyAll()
 

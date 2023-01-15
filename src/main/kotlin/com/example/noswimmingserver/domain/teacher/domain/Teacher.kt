@@ -15,12 +15,11 @@ class Teacher(
     @JoinColumn(name = "user_id", nullable = false)
     val user: User,
 
-    subject: String
+    subject: String?
 ) {
 
-    @field:NotNull
     @Column(columnDefinition = "VARCHAR(20)")
-    var subject = subject
+    var subject: String? = subject
         protected set
 
 }

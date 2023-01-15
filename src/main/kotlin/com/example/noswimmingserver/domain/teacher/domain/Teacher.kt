@@ -2,7 +2,6 @@ package com.example.noswimmingserver.domain.teacher.domain
 
 import com.example.noswimmingserver.domain.common_user.domain.User
 import javax.persistence.*
-import javax.validation.constraints.NotNull
 
 @Entity
 @Table(name = "tbl_teacher")
@@ -22,4 +21,7 @@ class Teacher(
     var subject: String? = subject
         protected set
 
+    fun editSubject(subject: String) {
+        this.subject = subject
+    }
 }

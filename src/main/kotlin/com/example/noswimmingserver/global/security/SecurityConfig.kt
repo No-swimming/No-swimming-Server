@@ -46,7 +46,7 @@ class SecurityConfig(
             // rank
             .antMatchers(HttpMethod.GET, "/rank").permitAll()
 
-            .anyRequest().denyAll()
+            .anyRequest().permitAll() // TODO: 권한 한 번에 설정하기 (우선 permitAll)
 
             .and().apply(FilterConfig(jwtParser, objectMapper))
 

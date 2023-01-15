@@ -1,6 +1,6 @@
 package com.example.noswimmingserver.domain.teacher.presentation.dto.response
 
-data class AccountResponse(
+data class TeacherAccountResponse(
     val email: String,
     val password: String,
 )

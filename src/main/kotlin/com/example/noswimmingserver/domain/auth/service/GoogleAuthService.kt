@@ -16,6 +16,7 @@ import com.example.noswimmingserver.infra.feign.properties.GoogleFeignProperties
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Service
+import org.springframework.transaction.annotation.Transactional
 import java.net.URLDecoder
 import java.nio.charset.StandardCharsets
 
@@ -29,6 +30,7 @@ class GoogleAuthService(
     private val jwtTokenProvider: JwtProvider
 ) {
 
+    @Transactional
     fun execute(code: String): ResponseEntity<TokenResponse> {
         val accessToken = googleTokenClient.googleAuth(
             GoogleCodeRequest(
@@ -66,7 +68,7 @@ class GoogleAuthService(
                     user = user,
                     grade = 0,
                     classNum = 0,
-                    number = 0
+                    number = 0,
                 )
             )
             status = HttpStatus.CREATED

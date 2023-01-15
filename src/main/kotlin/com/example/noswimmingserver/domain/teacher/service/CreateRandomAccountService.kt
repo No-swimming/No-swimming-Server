@@ -4,7 +4,7 @@ import com.example.noswimmingserver.domain.common_user.domain.User
 import com.example.noswimmingserver.domain.common_user.domain.repository.UserRepository
 import com.example.noswimmingserver.domain.teacher.domain.Teacher
 import com.example.noswimmingserver.domain.teacher.domain.repository.TeacherRepository
-import com.example.noswimmingserver.domain.teacher.presentation.dto.response.AccountResponse
+import com.example.noswimmingserver.domain.teacher.presentation.dto.response.TeacherAccountResponse
 import com.example.noswimmingserver.global.enum.Authority
 import com.example.noswimmingserver.global.util.RandomAccountUtil
 import org.springframework.security.crypto.password.PasswordEncoder
@@ -20,7 +20,7 @@ class CreateRandomAccountService(
 ) {
 
     @Transactional
-    fun execute(): AccountResponse {
+    fun execute(): TeacherAccountResponse {
         val email = randomAccountUtil.createRandomEmail()
         val password = randomAccountUtil.createRandomPassword()
 
@@ -41,6 +41,6 @@ class CreateRandomAccountService(
             )
         )
 
-        return AccountResponse(email, password)
+        return TeacherAccountResponse(email, password)
     }
 }

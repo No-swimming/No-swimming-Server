@@ -42,6 +42,7 @@ class SecurityConfig(
 
             // teacher
             .antMatchers(HttpMethod.POST, "/teacher").hasAuthority(AuthorityUtil.TEACHER)
+            .antMatchers(HttpMethod.PUT, "/teacher").hasAuthority(AuthorityUtil.TEACHER)
 
             // rank
             .antMatchers(HttpMethod.GET, "/rank").permitAll()

@@ -1,6 +1,8 @@
 package com.example.noswimmingserver.domain.student.presentation
 
 import com.example.noswimmingserver.domain.student.presentation.dto.request.UpdateStudentInfoRequest
+import com.example.noswimmingserver.domain.student.presentation.dto.response.QueryMyInfoResponse
+import com.example.noswimmingserver.domain.student.service.QueryMyInfoService
 import com.example.noswimmingserver.domain.student.service.StudentWithdrawalService
 import com.example.noswimmingserver.domain.student.service.UpdateStudentInfoService
 import org.springframework.http.HttpStatus
@@ -12,6 +14,7 @@ import javax.validation.Valid
 class StudentController(
     private val updateStudentInfoService: UpdateStudentInfoService,
     private val studentWithdrawalService: StudentWithdrawalService,
+    private val queryMyInfoService: QueryMyInfoService,
 ) {
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
@@ -24,5 +27,10 @@ class StudentController(
     @DeleteMapping
     fun withdrawalStudent() {
         studentWithdrawalService.execute()
+    }
+
+    @GetMapping
+    fun queryStudentInfo(): QueryMyInfoResponse {
+        return queryMyInfoService.execute()
     }
 }

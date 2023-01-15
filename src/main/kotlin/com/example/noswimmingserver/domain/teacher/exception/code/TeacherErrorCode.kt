@@ -7,5 +7,7 @@ enum class TeacherErrorCode(
     override val message: String
 ) : ErrorProperty {
 
+    PASSWORD_MIS_MATCH(401, "Password Mis Match"),
+
     TEACHER_NOT_FOUND(404, "Teacher Not Found"),
 }

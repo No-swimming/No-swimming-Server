@@ -66,8 +66,7 @@ class GoogleAuthService(
                     user = user,
                     grade = 0,
                     classNum = 0,
-                    number = 0,
-                    journalCount = 0
+                    number = 0
                 )
             )
             status = HttpStatus.CREATED

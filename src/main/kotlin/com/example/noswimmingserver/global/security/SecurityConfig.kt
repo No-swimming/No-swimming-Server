@@ -39,6 +39,9 @@ class SecurityConfig(
             .antMatchers(HttpMethod.PUT, "/student").authenticated()
             .antMatchers(HttpMethod.DELETE, "/student").authenticated()
 
+            // rank
+            .antMatchers(HttpMethod.GET, "/rank").permitAll()
+
             .anyRequest().denyAll()
 
             .and().apply(FilterConfig(jwtParser, objectMapper))

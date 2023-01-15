@@ -21,8 +21,6 @@ class Student(
     classNum: Int,
 
     number: Int,
-
-    journalCount: Int
 ) {
 
     @field:NotNull
@@ -38,10 +36,6 @@ class Student(
     @field:NotNull
     @field:Max(20)
     var number = number
-        protected set
-
-    @field:NotNull
-    var journalCount = journalCount
         protected set
 
     fun editStudentGCN(grade: Int, classNum: Int, number: Int) {

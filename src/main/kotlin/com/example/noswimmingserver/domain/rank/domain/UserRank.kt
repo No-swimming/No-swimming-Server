@@ -20,4 +20,10 @@ class UserRank(
     @field:NotNull
     @Column(columnDefinition = "VARCHAR(5)")
     val name: String,
-)
+
+    journalCount: Int,
+) {
+    @field:NotNull
+    var journalCount = journalCount
+        protected set
+}

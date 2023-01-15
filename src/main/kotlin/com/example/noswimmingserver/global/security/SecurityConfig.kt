@@ -2,6 +2,7 @@ package com.example.noswimmingserver.global.security
 
 import com.example.noswimmingserver.global.filter.FilterConfig
 import com.example.noswimmingserver.global.security.jwt.JwtParser
+import com.example.noswimmingserver.global.util.AuthorityUtil
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.springframework.context.annotation.Bean
 import org.springframework.http.HttpMethod
@@ -38,6 +39,9 @@ class SecurityConfig(
             // student
             .antMatchers(HttpMethod.PUT, "/student").authenticated()
             .antMatchers(HttpMethod.DELETE, "/student").authenticated()
+
+            // teacher
+            .antMatchers(HttpMethod.POST, "/teacher").hasAuthority(AuthorityUtil.TEACHER)
 
             // rank
             .antMatchers(HttpMethod.GET, "/rank").permitAll()

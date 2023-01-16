@@ -28,7 +28,10 @@ class TeacherSignInService(
             throw PasswordMisMatchException
         }
 
-        teacherFacade.saveDeviceToken(request.deviceToken, teacher.id)
+        teacherFacade.saveDeviceToken(
+            request.deviceToken,
+            teacher.id
+        )
 
         return jwtProvider.getToken(request.email)
     }

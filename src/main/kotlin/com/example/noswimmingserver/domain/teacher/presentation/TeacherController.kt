@@ -3,8 +3,10 @@ package com.example.noswimmingserver.domain.teacher.presentation
 import com.example.noswimmingserver.domain.common_user.presentation.dto.response.TokenResponse
 import com.example.noswimmingserver.domain.teacher.presentation.dto.request.TeacherSignInRequest
 import com.example.noswimmingserver.domain.teacher.presentation.dto.request.UpdateTeacherInfoRequest
+import com.example.noswimmingserver.domain.teacher.presentation.dto.response.QueryTeacherList
 import com.example.noswimmingserver.domain.teacher.presentation.dto.response.TeacherAccountResponse
 import com.example.noswimmingserver.domain.teacher.service.CreateRandomAccountService
+import com.example.noswimmingserver.domain.teacher.service.QueryTeacherListService
 import com.example.noswimmingserver.domain.teacher.service.TeacherSignInService
 import com.example.noswimmingserver.domain.teacher.service.UpdateTeacherInfoService
 import org.springframework.http.HttpStatus
@@ -17,6 +19,7 @@ class TeacherController(
     private val createRandomAccountService: CreateRandomAccountService,
     private val updateTeacherInfoService: UpdateTeacherInfoService,
     private val teacherSignInService: TeacherSignInService,
+    private val queryTeacherListService: QueryTeacherListService,
 ) {
 
     @ResponseStatus(HttpStatus.CREATED)
@@ -34,5 +37,10 @@ class TeacherController(
     @PostMapping("/token")
     fun teacherSignIn(@RequestBody @Valid request: TeacherSignInRequest): TokenResponse {
         return teacherSignInService.execute(request)
+    }
+
+    @GetMapping("/list")
+    fun queryTeacherList(): QueryTeacherList {
+        return queryTeacherListService.execute()
     }
 }

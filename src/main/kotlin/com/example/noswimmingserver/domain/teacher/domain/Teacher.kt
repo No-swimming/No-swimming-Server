@@ -34,4 +34,8 @@ class Teacher(
     fun saveDeviceToken(deviceToken: String) {
         this.deviceToken = deviceToken
     }
+
+    fun queryTeacherName(): String {
+        return user.name.toString()
+    }
 }

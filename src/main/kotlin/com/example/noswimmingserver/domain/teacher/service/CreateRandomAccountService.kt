@@ -38,6 +38,7 @@ class CreateRandomAccountService(
                 userId = user.id,
                 user = user,
                 subject = null,
+                deviceToken = null
             )
         )
 

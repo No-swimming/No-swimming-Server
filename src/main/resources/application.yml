@@ -26,3 +26,6 @@ auth:
     client_secret: ${GOOGLE_SECRET}
     redirect_uri: ${GOOGLE_REDIRECT_URI}
 
+firebase:
+  path: ${FIREBASE_PATH}
+

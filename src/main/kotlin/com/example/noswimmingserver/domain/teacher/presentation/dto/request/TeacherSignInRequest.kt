@@ -8,4 +8,7 @@ data class TeacherSignInRequest(
 
     @field:NotBlank
     val password: String,
+
+    @field:NotBlank
+    val deviceToken: String,
 )

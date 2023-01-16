@@ -36,6 +36,7 @@ dependencies {
     runtimeOnly(Dependency.MYSQL)
     implementation(Dependency.OPENFEIGN)
     implementation(Dependency.JWT)
+    implementation(Dependency.FIREBASE_ADMIN)
     annotationProcessor(Dependency.PROPERTIES_SCAN)
 }
 

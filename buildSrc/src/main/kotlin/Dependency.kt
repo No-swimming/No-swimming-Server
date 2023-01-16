@@ -37,4 +37,7 @@ object Dependency {
 
     // ktlint
     const val KTLINT = "com.pinterest:ktlint:${DependencyVersion.KTLINT_VERSION}"
+
+    // firebase
+    const val FIREBASE_ADMIN = "com.google.firebase:firebase-admin:${DependencyVersion.FIREBASE_ADMIN_VERSION}"
 }

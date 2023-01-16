@@ -15,4 +15,9 @@ class TeacherFacade(
         return teacherRepository.findByIdOrNull(teacherId)
             ?: throw TeacherNotFoundException
     }
+
+    fun saveDeviceToken(deviceToken: String, teacherId: Long) {
+        val teacher = getTeacherById(teacherId)
+        teacher.saveDeviceToken(deviceToken)
+    }
 }

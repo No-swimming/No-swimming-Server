@@ -43,4 +43,8 @@ class Student(
         this.classNum = classNum
         this.number = number
     }
+
+    fun queryStudentName(): String {
+        return user.name.toString()
+    }
 }

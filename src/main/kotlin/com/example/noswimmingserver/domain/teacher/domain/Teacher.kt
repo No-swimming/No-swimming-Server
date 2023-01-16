@@ -14,8 +14,14 @@ class Teacher(
     @JoinColumn(name = "user_id", nullable = false)
     val user: User,
 
+    deviceToken: String?,
+
     subject: String?
 ) {
+
+    @Column(columnDefinition = "VARCHAR(4096)")
+    var deviceToken: String? = deviceToken
+        protected set
 
     @Column(columnDefinition = "VARCHAR(20)")
     var subject: String? = subject
@@ -23,5 +29,13 @@ class Teacher(
 
     fun editSubject(subject: String) {
         this.subject = subject
+    }
+
+    fun saveDeviceToken(deviceToken: String) {
+        this.deviceToken = deviceToken
+    }
+
+    fun queryTeacherName(): String {
+        return user.name.toString()
     }
 }

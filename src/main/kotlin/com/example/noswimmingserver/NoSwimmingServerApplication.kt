@@ -9,5 +9,5 @@ import org.springframework.boot.runApplication
 class NoSwimmingServerApplication
 
 fun main(args: Array<String>) {
-	runApplication<NoSwimmingServerApplication>(*args)
+    runApplication<NoSwimmingServerApplication>(*args)
 }

@@ -1,6 +1,7 @@
 package com.example.noswimmingserver.domain.reading_journal.domain
 
 import com.example.noswimmingserver.domain.book.domain.Book
+import com.example.noswimmingserver.domain.feedback.domain.Feedback
 import com.example.noswimmingserver.domain.student.domain.Student
 import com.example.noswimmingserver.domain.teacher.domain.Teacher
 import java.time.LocalDateTime
@@ -28,6 +29,9 @@ class ReadingJournal(
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "teacher_id", nullable = false)
     val teacher: Teacher,
+
+    @OneToMany(mappedBy = "readingJournal", cascade = [CascadeType.REMOVE])
+    val feedbackList: MutableList<Feedback> = ArrayList(),
 
     title: String,
 

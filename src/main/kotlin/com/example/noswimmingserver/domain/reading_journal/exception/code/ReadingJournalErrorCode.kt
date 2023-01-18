@@ -7,5 +7,7 @@ enum class ReadingJournalErrorCode(
     override val message: String
 ) : ErrorProperty {
 
+    CANNOT_DELETE_READING_JOURNAL(401, "Cannot Delete Reading Journal"),
+
     READING_JOURNAL_NOT_FOUND(404, "Reading Journal Not Found ")
 }

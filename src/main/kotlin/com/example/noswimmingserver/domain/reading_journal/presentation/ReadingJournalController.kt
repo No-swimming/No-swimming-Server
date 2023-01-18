@@ -13,7 +13,7 @@ class ReadingJournalController(
 ) {
 
     @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping("{book-id}")
+    @PostMapping("/{book-id}")
     fun createReadingJournal(
         @PathVariable("book-id") bookId: Long,
         @RequestBody @Valid request: CreateReadingJournalRequest

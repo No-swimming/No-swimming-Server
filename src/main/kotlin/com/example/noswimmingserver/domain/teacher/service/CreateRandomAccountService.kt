@@ -44,4 +44,5 @@ class CreateRandomAccountService(
 
         return TeacherAccountResponse(email, password)
     }
+
 }

@@ -1,8 +1,10 @@
 package com.example.noswimmingserver.domain.reading_journal.presentation
 
 import com.example.noswimmingserver.domain.reading_journal.presentation.dto.request.CreateReadingJournalRequest
+import com.example.noswimmingserver.domain.reading_journal.presentation.dto.response.QueryMyJournalList
 import com.example.noswimmingserver.domain.reading_journal.service.CreateReadingJournalService
 import com.example.noswimmingserver.domain.reading_journal.service.DeleteReadingJournalService
+import com.example.noswimmingserver.domain.reading_journal.service.QueryMyJournalListService
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
 import javax.validation.Valid
@@ -12,6 +14,7 @@ import javax.validation.Valid
 class ReadingJournalController(
     private val createReadingJournalService: CreateReadingJournalService,
     private val deleteReadingJournalService: DeleteReadingJournalService,
+    private val queryMyJournalListService: QueryMyJournalListService,
 ) {
 
     @ResponseStatus(HttpStatus.CREATED)
@@ -30,5 +33,10 @@ class ReadingJournalController(
         readingJournalId: Long
     ) {
         deleteReadingJournalService.execute(readingJournalId)
+    }
+
+    @GetMapping("/list")
+    fun queryMyJournalList(): QueryMyJournalList {
+        return queryMyJournalListService.execute()
     }
 }

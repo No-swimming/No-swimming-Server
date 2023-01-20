@@ -34,7 +34,7 @@ class BookReadService(
                 user = user,
             )
         )
-        return ReadBookResponse(isRead = true)
+        return ReadBookResponse(isRead = checkIsRead(book, user))
     }
 
     private fun checkIsRead(book: Book, user: User) = myBookRepository.existsByBookAndUser(book, user)

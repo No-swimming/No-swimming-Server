@@ -38,4 +38,5 @@ class Teacher(
     fun queryTeacherName(): String {
         return user.name.toString()
     }
+    
 }

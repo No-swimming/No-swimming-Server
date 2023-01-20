@@ -37,7 +37,7 @@ class AddBookLikeService(
 
         return AddBookLikeResponse(
             likeCount = queryBookLikeCount(user, book),
-            liked = checkExistLike(user, book)
+            liked = checkExistLike(user, book),
         )
     }
 

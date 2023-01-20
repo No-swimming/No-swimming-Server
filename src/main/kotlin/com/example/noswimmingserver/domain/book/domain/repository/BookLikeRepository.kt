@@ -10,5 +10,4 @@ interface BookLikeRepository : CrudRepository<BookLike, Long> {
     fun existsByUserAndBook(user: User, book: Book): Boolean
 
     fun countByUserAndBook(user: User, book: Book): Long
-
 }

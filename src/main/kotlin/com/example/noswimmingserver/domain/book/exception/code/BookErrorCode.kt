@@ -7,5 +7,8 @@ enum class BookErrorCode(
     override val message: String
 ) : ErrorProperty {
 
-    BOOK_NOT_FOUND(404, "Book Not Found")
+    BOOK_NOT_FOUND(404, "Book Not Found"),
+
+    ALREADY_READ_BOOK(409, "Already Read Book"),
+
 }

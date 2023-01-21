@@ -1,5 +1,6 @@
 package com.example.noswimmingserver.domain.student.service
 
+import com.example.noswimmingserver.domain.rank.facade.RankFacade
 import com.example.noswimmingserver.domain.student.facade.StudentFacade
 import com.example.noswimmingserver.domain.student.presentation.dto.request.UpdateStudentInfoRequest
 import com.example.noswimmingserver.global.security.SecurityFacade
@@ -10,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional
 class UpdateStudentInfoService(
     private val securityFacade: SecurityFacade,
     private val studentFacade: StudentFacade,
+    private val rankFacade: RankFacade,
 ) {
 
     @Transactional
@@ -20,10 +22,17 @@ class UpdateStudentInfoService(
 
         val student = studentFacade.getStudentById(user.id)
 
+        val userRank = rankFacade.getRankById(user.id)
+
         student.editStudentGCN(
             request.grade,
             request.classNum,
             request.number,
+        )
+
+        userRank.editStudentInfo(
+            request.name,
+            request.grade
         )
     }
 }

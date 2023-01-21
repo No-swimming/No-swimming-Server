@@ -16,5 +16,23 @@ class CustomUserRankingRepositoryImpl(
             .fetch()
     }
 
-}
+    override fun countAllUsers(): Long = // 전체 유저 수 구하기
+        jpaQueryFactory
+            .select(userRank.count())
+            .from(userRank)
+            .fetchFirst()
 
+    override fun countLessThanMe(userId: Long): Long = // 내 독서록 수보다 적게 작성한 사람 수 구하기
+        jpaQueryFactory
+            .select(userRank.count())
+            .from(userRank)
+            .where(userRank.journalCount.lt(countMyJournal(userId)))
+            .fetchFirst()
+
+    private fun countMyJournal(userId: Long): Long = // 내 독서록 수 구하기
+        jpaQueryFactory
+            .select(userRank.count())
+            .from(userRank)
+            .where(userRank.userId.eq(userId))
+            .fetchFirst()
+}

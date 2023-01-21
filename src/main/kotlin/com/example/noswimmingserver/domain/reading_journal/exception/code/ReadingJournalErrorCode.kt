@@ -8,6 +8,7 @@ enum class ReadingJournalErrorCode(
 ) : ErrorProperty {
 
     CANNOT_DELETE_READING_JOURNAL(401, "Cannot Delete Reading Journal"),
+    CANNOT_SUBMIT_READING_JOURNAL(401, "Cannot Submit Reading Journal"),
 
     READING_JOURNAL_NOT_FOUND(404, "Reading Journal Not Found ")
 }

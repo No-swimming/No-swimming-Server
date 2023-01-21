@@ -20,7 +20,7 @@ class QueryUserRankingService(
 
                 .map {
                     QueryUserRankingElement(
-                        name = it.name,
+                        name = it.name!!,
                         grade = it.grade,
                         journalCount = it.journalCount,
                     )

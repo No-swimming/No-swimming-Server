@@ -58,4 +58,8 @@ class ReadingJournal(
     @field:NotNull
     var isRejected = isRejected
         protected set
+
+    fun submitJournal() {
+        this.isRejected = true
+    }
 }

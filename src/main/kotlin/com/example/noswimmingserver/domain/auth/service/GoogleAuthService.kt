@@ -4,6 +4,8 @@ import com.example.noswimmingserver.domain.common_user.domain.User
 import com.example.noswimmingserver.domain.common_user.domain.repository.UserRepository
 import com.example.noswimmingserver.domain.common_user.exception.code.InvalidEmailException
 import com.example.noswimmingserver.domain.common_user.presentation.dto.response.TokenResponse
+import com.example.noswimmingserver.domain.rank.domain.UserRank
+import com.example.noswimmingserver.domain.rank.domain.repository.UserRankRepository
 import com.example.noswimmingserver.domain.student.domain.Student
 import com.example.noswimmingserver.domain.student.domain.repository.StudentRepository
 import com.example.noswimmingserver.global.enum.Authority
@@ -24,6 +26,7 @@ import java.nio.charset.StandardCharsets
 class GoogleAuthService(
     private val userRepository: UserRepository,
     private val studentRepository: StudentRepository,
+    private val userRankRepository: UserRankRepository,
     private val googleInfoClient: GoogleInfoClient,
     private val googleTokenClient: GoogleTokenClient,
     private val googleFeignProperties: GoogleFeignProperties,
@@ -69,8 +72,18 @@ class GoogleAuthService(
                     grade = 0,
                     classNum = 0,
                     number = 0,
+                ),
+            )
+
+            userRankRepository.save(
+                UserRank(
+                    userId = user.id,
+                    name = null,
+                    grade = 0,
+                    journalCount = 0,
                 )
             )
+
             status = HttpStatus.CREATED
         }
 

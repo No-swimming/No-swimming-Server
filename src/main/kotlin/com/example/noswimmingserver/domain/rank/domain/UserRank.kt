@@ -13,17 +13,27 @@ class UserRank(
     @Id
     val userId: Long,
 
-    @field:NotNull
-    @field:Max(3)
-    val grade: Int,
-
-    @field:NotNull
-    @Column(columnDefinition = "VARCHAR(5)")
-    val name: String,
+    name: String?,
 
     journalCount: Int,
+
+    grade: Int,
 ) {
+    @Column(columnDefinition = "VARCHAR(5)")
+    var name = name
+        protected set
+
     @field:NotNull
     var journalCount = journalCount
         protected set
+
+    @field:NotNull
+    @field:Max(3)
+    var grade = grade
+        protected set
+
+    fun editStudentInfo(name: String, grade: Int) {
+        this.name = name
+        this.grade = grade
+    }
 }

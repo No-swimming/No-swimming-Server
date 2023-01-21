@@ -33,4 +33,7 @@ class User(
     fun editName(name: String) {
         this.name = name
     }
+
+    fun queryName() = this.name.toString()
+
 }

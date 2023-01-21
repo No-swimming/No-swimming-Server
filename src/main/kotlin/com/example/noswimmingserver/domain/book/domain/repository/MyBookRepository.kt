@@ -9,4 +9,6 @@ interface MyBookRepository : CrudRepository<MyBook, Long> {
 
     fun existsByBookAndUser(book: Book, user: User): Boolean
 
+    fun countByUserId(userId: Long): Long
+
 }

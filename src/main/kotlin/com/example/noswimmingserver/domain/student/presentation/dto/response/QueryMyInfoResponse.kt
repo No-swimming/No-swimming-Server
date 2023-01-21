@@ -6,4 +6,7 @@ data class QueryMyInfoResponse(
     val grade: Int,
     val classNum: Int,
     val number: Int,
+    val countRejectBook: Int,
+    val countReadBook: Int,
+    val myRank: Int,
 )

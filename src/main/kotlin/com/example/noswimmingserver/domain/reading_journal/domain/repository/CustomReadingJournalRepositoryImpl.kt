@@ -4,6 +4,7 @@ import com.example.noswimmingserver.domain.book.domain.QBook.book
 import com.example.noswimmingserver.domain.reading_journal.domain.QReadingJournal.readingJournal
 import com.example.noswimmingserver.domain.reading_journal.domain.repository.vo.QQueryJournalVO
 import com.example.noswimmingserver.domain.reading_journal.domain.repository.vo.QueryJournalVO
+import com.example.noswimmingserver.domain.student.domain.QStudent.student
 import com.querydsl.jpa.impl.JPAQueryFactory
 
 class CustomReadingJournalRepositoryImpl(
@@ -32,7 +33,8 @@ class CustomReadingJournalRepositoryImpl(
         return jpaQueryFactory
             .select(readingJournal.count())
             .from(readingJournal)
-            .where(readingJournal.student.userId.eq(userId))
+            .innerJoin(student)
+            .on(readingJournal.student.userId.eq(userId))
             .fetchFirst()
     }
 }

@@ -1,5 +1,6 @@
 package com.example.noswimmingserver.domain.rank.domain.repository
 
+import com.example.noswimmingserver.domain.common_user.domain.QUser.user
 import com.example.noswimmingserver.domain.rank.domain.QUserRank.userRank
 import com.example.noswimmingserver.domain.rank.domain.UserRank
 import com.querydsl.jpa.impl.JPAQueryFactory
@@ -26,7 +27,8 @@ class CustomUserRankingRepositoryImpl(
         jpaQueryFactory
             .select(userRank.count())
             .from(userRank)
-            .where(userRank.journalCount.lt(countMyJournal(userId)))
+            .innerJoin(user)
+            .on(userRank.journalCount.lt(countMyJournal(userId)))
             .fetchFirst()
 
     private fun countMyJournal(userId: Long): Long = // 내 독서록 수 구하기

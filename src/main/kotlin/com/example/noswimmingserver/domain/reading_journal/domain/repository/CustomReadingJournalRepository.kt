@@ -6,4 +6,5 @@ interface CustomReadingJournalRepository {
 
     fun queryMyReadingJournalList(userId: Long): List<QueryJournalVO>
 
+    fun countMyReadingJournal(userId: Long): Long
 }

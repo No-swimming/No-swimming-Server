@@ -27,4 +27,12 @@ class CustomReadingJournalRepositoryImpl(
             .orderBy(readingJournal.createdAt.desc())
             .fetch()
     }
+
+    override fun countMyReadingJournal(userId: Long): Long {
+        return jpaQueryFactory
+            .select(readingJournal.count())
+            .from(readingJournal)
+            .where(readingJournal.student.userId.eq(userId))
+            .fetchFirst()
+    }
 }

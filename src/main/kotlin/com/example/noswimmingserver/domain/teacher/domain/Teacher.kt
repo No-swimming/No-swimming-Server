@@ -35,8 +35,9 @@ class Teacher(
         this.deviceToken = deviceToken
     }
 
-    fun queryTeacherName(): String {
-        return user.name.toString()
+    fun deleteDeviceToken() {
+        this.deviceToken = null
     }
-    
+
+    fun queryTeacherName() = user.name.toString()
 }

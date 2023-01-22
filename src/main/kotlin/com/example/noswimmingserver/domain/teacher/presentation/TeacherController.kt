@@ -5,10 +5,7 @@ import com.example.noswimmingserver.domain.teacher.presentation.dto.request.Teac
 import com.example.noswimmingserver.domain.teacher.presentation.dto.request.UpdateTeacherInfoRequest
 import com.example.noswimmingserver.domain.teacher.presentation.dto.response.QueryTeacherList
 import com.example.noswimmingserver.domain.teacher.presentation.dto.response.TeacherAccountResponse
-import com.example.noswimmingserver.domain.teacher.service.CreateRandomAccountService
-import com.example.noswimmingserver.domain.teacher.service.QueryTeacherListService
-import com.example.noswimmingserver.domain.teacher.service.TeacherSignInService
-import com.example.noswimmingserver.domain.teacher.service.UpdateTeacherInfoService
+import com.example.noswimmingserver.domain.teacher.service.*
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
 import javax.validation.Valid
@@ -20,6 +17,7 @@ class TeacherController(
     private val updateTeacherInfoService: UpdateTeacherInfoService,
     private val teacherSignInService: TeacherSignInService,
     private val queryTeacherListService: QueryTeacherListService,
+    private val teacherLogOutService: TeacherLogOutService,
 ) {
 
     @ResponseStatus(HttpStatus.CREATED)
@@ -32,6 +30,12 @@ class TeacherController(
     @PutMapping
     fun editTeacherInfo(@RequestBody @Valid request: UpdateTeacherInfoRequest) {
         updateTeacherInfoService.execute(request)
+    }
+
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @DeleteMapping
+    fun logOutTeacher() {
+        teacherLogOutService.execute()
     }
 
     @PostMapping("/token")

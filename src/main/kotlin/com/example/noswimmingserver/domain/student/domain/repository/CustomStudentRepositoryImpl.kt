@@ -14,13 +14,12 @@ class CustomStudentRepositoryImpl(
             .selectFrom(student)
             .where(
                 gradeEq(grade),
-                classNumEq(classNum)
+                classNumEq(classNum),
             )
             .fetch()
     }
 
     private fun gradeEq(grade: Int): BooleanExpression = student.grade.eq(grade)
-
 
     private fun classNumEq(classNum: Int): BooleanExpression = student.classNum.eq(classNum)
 }

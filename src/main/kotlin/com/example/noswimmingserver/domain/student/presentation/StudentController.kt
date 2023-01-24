@@ -2,7 +2,9 @@ package com.example.noswimmingserver.domain.student.presentation
 
 import com.example.noswimmingserver.domain.student.presentation.dto.request.UpdateStudentInfoRequest
 import com.example.noswimmingserver.domain.student.presentation.dto.response.QueryMyInfoResponse
+import com.example.noswimmingserver.domain.student.presentation.dto.response.QueryStudentList
 import com.example.noswimmingserver.domain.student.service.QueryMyInfoService
+import com.example.noswimmingserver.domain.student.service.QueryStudentListService
 import com.example.noswimmingserver.domain.student.service.StudentWithdrawalService
 import com.example.noswimmingserver.domain.student.service.UpdateStudentInfoService
 import org.springframework.http.HttpStatus
@@ -15,6 +17,7 @@ class StudentController(
     private val updateStudentInfoService: UpdateStudentInfoService,
     private val studentWithdrawalService: StudentWithdrawalService,
     private val queryMyInfoService: QueryMyInfoService,
+    private val queryStudentListService: QueryStudentListService,
 ) {
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
@@ -32,5 +35,13 @@ class StudentController(
     @GetMapping
     fun queryStudentInfo(): QueryMyInfoResponse {
         return queryMyInfoService.execute()
+    }
+
+    @GetMapping("/list")
+    fun queryStudentListByGradeAndClassNum(
+        @RequestParam grade: Int,
+        @RequestParam classNum: Int
+    ): QueryStudentList {
+        return queryStudentListService.execute(grade, classNum)
     }
 }

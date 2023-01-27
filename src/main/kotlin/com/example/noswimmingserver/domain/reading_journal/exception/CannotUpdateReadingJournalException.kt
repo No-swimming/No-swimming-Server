@@ -4,5 +4,5 @@ import com.example.noswimmingserver.domain.reading_journal.exception.code.Readin
 import com.example.noswimmingserver.global.error.CustomException
 
 object CannotUpdateReadingJournalException : CustomException(
-    ReadingJournalErrorCode.CANNOT_UPDATE_READING_JOURNAL
+    ReadingJournalErrorCode.CANNOT_UPDATE_READING_JOURNAL,
 )

@@ -24,7 +24,9 @@ class ReadingJournalController(
     @PostMapping("/{book-id}")
     fun createReadingJournal(
         @PathVariable("book-id") bookId: Long,
-        @RequestBody @Valid request: CreateReadingJournalRequest,
+        @RequestBody
+        @Valid
+        request: CreateReadingJournalRequest,
     ) {
         createReadingJournalService.execute(bookId, request)
     }
@@ -42,7 +44,9 @@ class ReadingJournalController(
     @PutMapping("/{reading-journal-id}")
     fun editReadingJournal(
         @PathVariable("reading-journal-id") readingJournalId: Long,
-        @RequestBody @Valid request: UpdateReadingJournalRequest,
+        @RequestBody
+        @Valid
+        request: UpdateReadingJournalRequest,
     ) {
         updateReadingJournalService.execute(readingJournalId, request)
     }

@@ -1,6 +1,7 @@
 package com.example.noswimmingserver.domain.reading_journal.presentation
 
 import com.example.noswimmingserver.domain.reading_journal.presentation.dto.request.CreateReadingJournalRequest
+import com.example.noswimmingserver.domain.reading_journal.presentation.dto.request.UpdateReadingJournalRequest
 import com.example.noswimmingserver.domain.reading_journal.presentation.dto.response.QueryJournalDetailResponse
 import com.example.noswimmingserver.domain.reading_journal.presentation.dto.response.QueryMyJournalList
 import com.example.noswimmingserver.domain.reading_journal.service.*
@@ -12,6 +13,7 @@ import javax.validation.Valid
 @RestController
 class ReadingJournalController(
     private val createReadingJournalService: CreateReadingJournalService,
+    private val updateReadingJournalService: UpdateReadingJournalService,
     private val deleteReadingJournalService: DeleteReadingJournalService,
     private val queryMyJournalListService: QueryMyJournalListService,
     private val queryReadingJournalDetailService: QueryReadingJournalDetailService,
@@ -34,6 +36,15 @@ class ReadingJournalController(
         readingJournalId: Long,
     ) {
         deleteReadingJournalService.execute(readingJournalId)
+    }
+
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @PutMapping("/{reading-journal-id}")
+    fun editReadingJournal(
+        @PathVariable("reading-journal-id") readingJournalId: Long,
+        @RequestBody @Valid request: UpdateReadingJournalRequest,
+    ) {
+        updateReadingJournalService.execute(readingJournalId, request)
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)

@@ -62,4 +62,9 @@ class ReadingJournal(
     fun submitJournal() {
         this.isRejected = true
     }
+
+    fun editReadingJournal(title: String, content: String) {
+        this.title = title
+        this.content = content
+    }
 }

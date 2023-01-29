@@ -35,3 +35,4 @@ jobs:
 
       - name: Push on Dockerhub
         run: docker push ${{ secrets.DOCKER_IMAGE }}
+        

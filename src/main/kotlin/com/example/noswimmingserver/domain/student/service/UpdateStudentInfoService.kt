@@ -25,14 +25,14 @@ class UpdateStudentInfoService(
         val userRank = rankFacade.getRankById(user.id)
 
         student.editStudentGCN(
-            request.grade,
-            request.classNum,
-            request.number,
+            grade = request.grade,
+            classNum = request.classNum,
+            number = request.number,
         )
 
         userRank.editStudentInfo(
-            request.name,
-            request.grade
+            name = request.name,
+            grade = request.grade,
         )
     }
 }

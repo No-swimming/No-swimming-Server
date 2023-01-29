@@ -29,8 +29,8 @@ class TeacherSignInService(
         }
 
         teacherFacade.saveDeviceToken(
-            request.deviceToken,
-            teacher.id
+            deviceToken = request.deviceToken,
+            teacherId = teacher.id,
         )
 
         return jwtProvider.getToken(request.email)

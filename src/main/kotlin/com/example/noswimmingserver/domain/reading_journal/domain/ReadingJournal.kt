@@ -26,10 +26,6 @@ class ReadingJournal(
     @JoinColumn(name = "student_id", nullable = false)
     val student: Student,
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "teacher_id", nullable = false)
-    val teacher: Teacher,
-
     @OneToMany(mappedBy = "readingJournal", cascade = [CascadeType.REMOVE])
     val feedbackList: MutableList<Feedback> = ArrayList(),
 
@@ -40,6 +36,8 @@ class ReadingJournal(
     recordReject: Boolean,
 
     isRejected: Boolean,
+
+    teacher: Teacher,
 ) {
     @field:NotNull
     @Column(columnDefinition = "VARCHAR(50)")
@@ -49,6 +47,11 @@ class ReadingJournal(
     @field:NotNull
     @Column(columnDefinition = "VARCHAR(5000)")
     var content = content
+        protected set
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "teacher_id", nullable = false)
+    var teacher = teacher
         protected set
 
     @field:NotNull
@@ -63,8 +66,9 @@ class ReadingJournal(
         this.isRejected = true
     }
 
-    fun editReadingJournal(title: String, content: String) {
+    fun editReadingJournal(title: String, content: String, teacher: Teacher) {
         this.title = title
         this.content = content
+        this.teacher = teacher
     }
 }

@@ -6,6 +6,7 @@ import javax.persistence.*
 @Entity
 @Table(name = "tbl_teacher")
 class Teacher(
+
     @Id
     val userId: Long,
 

@@ -8,6 +8,7 @@ import javax.validation.constraints.NotNull
 @Entity
 @Table(name = "tbl_student")
 class Student(
+
     @Id
     val userId: Long,
 

@@ -10,6 +10,7 @@ import javax.validation.constraints.NotNull
 @Entity
 @Table(name = "tbl_user_rank")
 class UserRank(
+
     @Id
     val userId: Long,
 

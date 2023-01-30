@@ -6,6 +6,7 @@ import javax.validation.constraints.NotNull
 @Entity
 @Table(name = "tbl_book")
 class Book(
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long = 0,

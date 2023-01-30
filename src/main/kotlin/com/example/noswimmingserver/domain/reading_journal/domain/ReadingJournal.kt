@@ -11,6 +11,7 @@ import javax.validation.constraints.NotNull
 @Entity
 @Table(name = "tbl_reading_journal")
 class ReadingJournal(
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long = 0,

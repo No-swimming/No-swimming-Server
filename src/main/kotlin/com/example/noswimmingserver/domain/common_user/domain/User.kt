@@ -7,6 +7,7 @@ import javax.validation.constraints.NotNull
 @Entity
 @Table(name = "tbl_user")
 class User(
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long = 0,

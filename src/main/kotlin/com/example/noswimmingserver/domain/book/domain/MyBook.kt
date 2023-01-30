@@ -6,6 +6,7 @@ import javax.persistence.*
 @Entity
 @Table(name = "tbl_my_book")
 class MyBook(
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long = 0,

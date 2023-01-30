@@ -17,7 +17,9 @@ class FeedbackController(
     @PostMapping("/{reading-journal-id}")
     fun createFeedback(
         @PathVariable("reading-journal-id") readingJournalId: Long,
-        @RequestBody @Valid request: CreateFeedbackRequest,
+        @RequestBody
+        @Valid
+        request: CreateFeedbackRequest,
     ) {
         feedbackService.execute(readingJournalId, request)
     }
@@ -26,7 +28,9 @@ class FeedbackController(
     @PutMapping("/{feedback-id}")
     fun editFeedback(
         @PathVariable("feedback-id") feedbackId: Long,
-        @RequestBody @Valid request: UpdateFeedbackRequest,
+        @RequestBody
+        @Valid
+        request: UpdateFeedbackRequest,
     ) {
         feedbackService.execute(feedbackId, request)
     }

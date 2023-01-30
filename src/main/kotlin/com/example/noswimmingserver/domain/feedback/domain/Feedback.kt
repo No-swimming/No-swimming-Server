@@ -31,4 +31,8 @@ class Feedback(
     @Column(columnDefinition = "VARCHAR(500)")
     var content = content
         protected set
+
+    fun editContent(content: String) {
+        this.content = content
+    }
 }

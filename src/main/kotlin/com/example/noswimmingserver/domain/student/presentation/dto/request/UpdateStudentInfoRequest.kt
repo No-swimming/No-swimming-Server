@@ -11,6 +11,9 @@ data class UpdateStudentInfoRequest(
     val name: String,
 
     @field:NotNull
+    val profileNum: Int,
+
+    @field:NotNull
     val grade: Int,
 
     @field:NotNull

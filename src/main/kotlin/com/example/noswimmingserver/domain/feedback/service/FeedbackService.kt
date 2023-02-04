@@ -16,7 +16,7 @@ import org.springframework.transaction.annotation.Transactional
 import java.time.LocalDateTime
 
 @Service
-class ㄹFeedbackService(
+class FeedbackService(
     private val securityFacade: SecurityFacade,
     private val teacherFacade: TeacherFacade,
     private val readingJournalFacade: ReadingJournalFacade,

@@ -18,7 +18,10 @@ class UpdateTeacherInfoService(
 
         val teacher = teacherFacade.getTeacherById(user.id)
 
-        user.editName(name = request.name)
+        user.editNameAndProfileNum(
+            name = request.name,
+            profileNum = request.profileNum,
+        )
 
         teacher.editSubject(subject = request.subject)
     }

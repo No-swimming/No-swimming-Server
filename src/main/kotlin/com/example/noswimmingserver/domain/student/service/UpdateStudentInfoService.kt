@@ -18,7 +18,10 @@ class UpdateStudentInfoService(
     fun execute(request: UpdateStudentInfoRequest) {
         val user = securityFacade.getCurrentUser()
 
-        user.editName(request.name)
+        user.editNameAndProfileNum(
+            name = request.name,
+            profileNum = request.profileNum,
+        )
 
         val student = studentFacade.getStudentById(user.id)
 

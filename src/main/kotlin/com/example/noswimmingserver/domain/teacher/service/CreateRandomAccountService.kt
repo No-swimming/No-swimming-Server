@@ -29,6 +29,7 @@ class CreateRandomAccountService(
             password = passwordEncoder.encode(password),
             authority = Authority.TEACHER,
             name = null,
+            profileNum = null,
         )
 
         userRepository.save(user)

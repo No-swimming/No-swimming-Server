@@ -61,7 +61,8 @@ class GoogleAuthService(
                 email = email,
                 password = null,
                 authority = Authority.STUDENT,
-                name = null
+                name = null,
+                profileNum = null,
             )
             userRepository.save(user)
 

@@ -36,8 +36,9 @@ class User(
     var profileNum = profileNum
         protected set
 
-    fun editName(name: String) {
+    fun editNameAndProfileNum(name: String, profileNum: Int) {
         this.name = name
+        this.profileNum = profileNum
     }
 
     fun queryName() = this.name.toString()

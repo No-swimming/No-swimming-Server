@@ -13,5 +13,4 @@ class SecurityProperties(
 
     val accessExp = accessExp * 1000
     val secretKey = Base64.getEncoder().encodeToString(secretKey.toByteArray())!!
-
 }

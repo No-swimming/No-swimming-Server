@@ -9,9 +9,8 @@ class AuthDetails(
     private val user: User
 ) : UserDetails {
 
-    override fun getAuthorities(): MutableCollection<out GrantedAuthority> {
-        return mutableListOf(SimpleGrantedAuthority(user.authority.name))
-    }
+    override fun getAuthorities(): MutableCollection<out GrantedAuthority> =
+        mutableListOf(SimpleGrantedAuthority(user.authority.name))
 
     override fun getPassword(): String? = null
 

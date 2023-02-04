@@ -23,11 +23,9 @@ class JwtProvider(
             .setExpiration(Date(System.currentTimeMillis() + securityProperties.accessExp))
             .compact()
 
-    fun getToken(email: String): TokenResponse {
-        return TokenResponse(
+    fun getToken(email: String) =
+        TokenResponse(
             accessToken = createAccessToken(email),
             accessTokenExp = LocalDateTime.now().plusSeconds(securityProperties.accessExp)
         )
-    }
 }
-

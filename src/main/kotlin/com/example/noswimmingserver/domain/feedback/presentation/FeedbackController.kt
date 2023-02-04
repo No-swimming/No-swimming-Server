@@ -2,6 +2,7 @@ package com.example.noswimmingserver.domain.feedback.presentation
 
 import com.example.noswimmingserver.domain.feedback.presentation.dto.request.CreateFeedbackRequest
 import com.example.noswimmingserver.domain.feedback.presentation.dto.request.UpdateFeedbackRequest
+import com.example.noswimmingserver.domain.feedback.presentation.dto.response.QueryFeedbackDetailResponse
 import com.example.noswimmingserver.domain.feedback.service.FeedbackService
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
@@ -41,5 +42,12 @@ class FeedbackController(
         @PathVariable("feedback-id") feedbackId: Long,
     ) {
         feedbackService.execute(feedbackId)
+    }
+
+    @GetMapping("/{feedback-id}")
+    fun queryFeedbackDetail(
+        @PathVariable("feedback-id") feedbackId: Long,
+    ): QueryFeedbackDetailResponse {
+        return feedbackService.queryFeedbackDetail(feedbackId)
     }
 }

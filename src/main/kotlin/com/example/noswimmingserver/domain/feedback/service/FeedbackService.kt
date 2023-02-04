@@ -7,6 +7,7 @@ import com.example.noswimmingserver.domain.feedback.exception.CannotUpdateFeedba
 import com.example.noswimmingserver.domain.feedback.facade.FeedbackFacade
 import com.example.noswimmingserver.domain.feedback.presentation.dto.request.CreateFeedbackRequest
 import com.example.noswimmingserver.domain.feedback.presentation.dto.request.UpdateFeedbackRequest
+import com.example.noswimmingserver.domain.feedback.presentation.dto.response.QueryFeedbackDetailResponse
 import com.example.noswimmingserver.domain.reading_journal.facade.ReadingJournalFacade
 import com.example.noswimmingserver.domain.teacher.facade.TeacherFacade
 import com.example.noswimmingserver.global.security.SecurityFacade
@@ -65,5 +66,17 @@ class FeedbackService(
         }
 
         feedbackRepository.delete(feedback)
+    }
+
+    @Transactional(readOnly = true)
+    fun queryFeedbackDetail(feedbackId: Long): QueryFeedbackDetailResponse {
+        val feedback = feedbackFacade.getFeedbackById(feedbackId)
+
+        return QueryFeedbackDetailResponse(
+            feedbackId = feedback.id,
+            content = feedback.content,
+            teacherName = feedback.teacher.queryTeacherName(),
+            createdAt = feedback.createdAt
+        )
     }
 }

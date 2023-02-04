@@ -25,14 +25,20 @@ class User(
     val authority: Authority,
 
     name: String?,
+
+    profileNum: Int?,
 ) {
 
     @Column(columnDefinition = "VARCHAR(5)")
     var name: String? = name
         protected set
 
-    fun editName(name: String) {
+    var profileNum = profileNum
+        protected set
+
+    fun editNameAndProfileNum(name: String, profileNum: Int) {
         this.name = name
+        this.profileNum = profileNum
     }
 
     fun queryName() = this.name.toString()

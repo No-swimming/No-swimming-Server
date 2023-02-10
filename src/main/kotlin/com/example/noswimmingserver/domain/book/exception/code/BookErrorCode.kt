@@ -8,6 +8,7 @@ enum class BookErrorCode(
 ) : ErrorProperty {
 
     BOOK_NOT_FOUND(404, "Book Not Found"),
+    BOOKSTORE_NOT_FOUND(404, "BookStore Not Found"),
 
     ALREADY_READ_BOOK(409, "Already Read Book"),
     ALREADY_LIKE_BOOK(409, "Already Like Book"),

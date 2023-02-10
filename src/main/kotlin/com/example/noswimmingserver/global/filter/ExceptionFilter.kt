@@ -23,6 +23,7 @@ class ExceptionFilter(
         try {
             filterChain.doFilter(request, response)
         } catch (e: Exception) {
+            e.printStackTrace()
             when (e) {
                 is CustomException -> setErrorJson(InternalServerErrorException, response)
                 else -> setErrorJson(InternalServerErrorException, response)

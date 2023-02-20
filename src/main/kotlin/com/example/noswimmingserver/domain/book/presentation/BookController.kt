@@ -31,7 +31,7 @@ class BookController(
     }
 
     @GetMapping
-    fun getMyBookStore(@RequestParam bookStoreType: BookStoreType): QueryMyBookStoreList {
+    fun getMyBookStore(@RequestParam bookStoreType: String): QueryMyBookStoreList {
         return queryMyBookStoreService.execute(bookStoreType)
     }
 }

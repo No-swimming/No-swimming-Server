@@ -7,12 +7,12 @@ import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 
 @Service
-class QueryUserRankingService(
+class UserRankingService(
     private val userRankRepository: UserRankRepository,
 ) {
 
     @Transactional(readOnly = true)
-    fun execute(): QueryUserRankingList {
+    fun queryUserRanking(): QueryUserRankingList {
         val userRankingList = userRankRepository.queryUserRanking()
 
         return QueryUserRankingList(

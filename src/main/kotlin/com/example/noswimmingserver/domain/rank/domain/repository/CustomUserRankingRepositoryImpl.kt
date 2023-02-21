@@ -12,7 +12,6 @@ class CustomUserRankingRepositoryImpl(
     override fun queryUserRanking(): List<UserRank> {
         return jpaQueryFactory
             .selectFrom(userRank)
-            //.where(readingJournal.createdAt.gt(LocalDateTime.of(2023, 1, 1, 0, 0, 0)))
             .orderBy(userRank.journalCount.desc())
             .fetch()
     }

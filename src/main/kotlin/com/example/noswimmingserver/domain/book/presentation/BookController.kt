@@ -1,6 +1,5 @@
 package com.example.noswimmingserver.domain.book.presentation
 
-import com.example.noswimmingserver.domain.book.domain.type.BookStoreType
 import com.example.noswimmingserver.domain.book.presentation.dto.response.AddBookLikeResponse
 import com.example.noswimmingserver.domain.book.presentation.dto.response.QueryMyBookStoreList
 import com.example.noswimmingserver.domain.book.presentation.dto.response.ReadBookResponse

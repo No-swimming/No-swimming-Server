@@ -1,5 +1,6 @@
 package com.example.noswimmingserver.domain.student.service
 
+import com.example.noswimmingserver.domain.common_user.exception.UserNotFoundException
 import com.example.noswimmingserver.domain.student.domain.repository.StudentRepository
 import com.example.noswimmingserver.domain.student.presentation.dto.response.QueryStudentElement
 import com.example.noswimmingserver.domain.student.presentation.dto.response.QueryStudentList
@@ -12,19 +13,27 @@ class QueryStudentListService(
 ) {
 
     @Transactional(readOnly = true)
-    fun execute(grade: Int, classNum: Int): QueryStudentList {
-        val studentList = studentRepository.queryStudentListByGradeAndClassNum(grade, classNum)
+    fun execute(grade: Int?, classNum: Int?): QueryStudentList {
+        val studentList = studentRepository.queryStudentList()
 
-        return QueryStudentList(
-            studentList = studentList
-                .map {
-                    QueryStudentElement(
-                        grade = it.grade,
-                        classNum = it.classNum,
-                        number = it.number,
-                        name = it.queryStudentName(),
-                    )
+        val response = studentList
+            .filter { student ->
+                when {
+                    grade != null && classNum == null -> student.grade == grade
+                    grade == null && classNum != null -> student.classNum == classNum
+                    grade != null && classNum != null -> student.grade == grade && student.classNum == classNum
+                    else -> throw UserNotFoundException
                 }
-        )
+            }
+            .map { student ->
+                QueryStudentElement(
+                    grade = student.grade,
+                    classNum = student.classNum,
+                    number = student.number,
+                    name = student.queryStudentName(),
+                )
+            }
+
+        return QueryStudentList(response)
     }
 }

@@ -18,11 +18,8 @@ class StudentWithdrawalService(
     @Transactional
     fun execute() {
         val user = securityFacade.getCurrentUser()
-
         val student = studentFacade.getStudentById(user.id)
-
         studentRepository.delete(student)
-
         userRepository.delete(user)
     }
 }

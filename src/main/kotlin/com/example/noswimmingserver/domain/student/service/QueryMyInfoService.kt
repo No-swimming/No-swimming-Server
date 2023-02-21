@@ -22,7 +22,6 @@ class QueryMyInfoService(
     @Transactional(readOnly = true)
     fun execute(): QueryMyInfoResponse {
         val user = securityFacade.getCurrentUser()
-
         val student = studentFacade.getStudentById(user.id)
 
         return QueryMyInfoResponse(

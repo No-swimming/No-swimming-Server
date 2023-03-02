@@ -26,6 +26,11 @@ class TeacherController(
         return createRandomAccountService.execute()
     }
 
+    @PostMapping("/device-token")
+    fun teacherSignIn(@RequestBody @Valid request: TeacherSignInRequest): TokenResponse {
+        return teacherSignInService.execute(request)
+    }
+
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @PutMapping
     fun editTeacherInfo(@RequestBody @Valid request: UpdateTeacherInfoRequest) {
@@ -36,11 +41,6 @@ class TeacherController(
     @DeleteMapping
     fun logOutTeacher() {
         teacherLogOutService.execute()
-    }
-
-    @PostMapping("/token")
-    fun teacherSignIn(@RequestBody @Valid request: TeacherSignInRequest): TokenResponse {
-        return teacherSignInService.execute(request)
     }
 
     @GetMapping("/list")

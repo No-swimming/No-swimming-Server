@@ -1,6 +1,5 @@
 package com.example.noswimmingserver.domain.student.service
 
-import com.example.noswimmingserver.domain.common_user.exception.UserNotFoundException
 import com.example.noswimmingserver.domain.student.domain.repository.StudentRepository
 import com.example.noswimmingserver.domain.student.presentation.dto.response.QueryStudentElement
 import com.example.noswimmingserver.domain.student.presentation.dto.response.QueryStudentList
@@ -22,7 +21,7 @@ class QueryStudentListService(
                     grade != null && classNum == null -> student.grade == grade
                     grade == null && classNum != null -> student.classNum == classNum
                     grade != null && classNum != null -> student.grade == grade && student.classNum == classNum
-                    else -> throw UserNotFoundException
+                    else -> return@filter true
                 }
             }
             .map { student ->

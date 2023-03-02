@@ -13,6 +13,7 @@ import javax.validation.Valid
 @RestController
 class ReadingJournalController(
     private val createReadingJournalService: CreateReadingJournalService,
+    private val changeToEndJournalService: ChangeToEndJournalService,
     private val updateReadingJournalService: UpdateReadingJournalService,
     private val deleteReadingJournalService: DeleteReadingJournalService,
     private val queryMyJournalListService: QueryMyJournalListService,
@@ -58,6 +59,15 @@ class ReadingJournalController(
         readingJournalId: Long,
     ) {
         submitReadingJournalService.execute(readingJournalId)
+    }
+
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @PatchMapping("/end/{reading-journal-id}")
+    fun changeToEndJournal(
+        @PathVariable("reading-journal-id")
+        readingJournalId: Long,
+    ) {
+        changeToEndJournalService.execute(readingJournalId)
     }
 
 

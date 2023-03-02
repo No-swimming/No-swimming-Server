@@ -8,5 +8,5 @@ data class QueryJournalDetailResponse(
     val recordReject: Boolean,
     val isRejected: Boolean,
     val teacherName: String,
-    val teacherSubject: String,
+    val teacherSubject: String?,
 )

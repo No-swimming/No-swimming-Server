@@ -2,6 +2,7 @@ package com.example.noswimmingserver.domain.reading_journal.service
 
 import com.example.noswimmingserver.domain.book.facade.BookFacade
 import com.example.noswimmingserver.domain.reading_journal.domain.ReadingJournal
+import com.example.noswimmingserver.domain.reading_journal.domain.ReadingJournalType
 import com.example.noswimmingserver.domain.reading_journal.domain.repository.ReadingJournalRepository
 import com.example.noswimmingserver.domain.reading_journal.presentation.dto.request.CreateReadingJournalRequest
 import com.example.noswimmingserver.domain.student.facade.StudentFacade
@@ -39,7 +40,7 @@ class CreateReadingJournalService(
                 title = request.title,
                 content = request.content,
                 recordReject = false,
-                isRejected = false,
+                readingJournalType = ReadingJournalType.SAVE,
             )
         )
     }

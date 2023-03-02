@@ -31,7 +31,7 @@ class QueryReadingJournalDetailService(
             recordReject = readingJournal.recordReject,
             isRejected = readingJournal.isRejected,
             teacherName = teacher.queryTeacherName(),
-            teacherSubject = teacher.subject!!
+            teacherSubject = teacher.subject,
         )
     }
 }

@@ -29,7 +29,7 @@ class QueryReadingJournalDetailService(
             title = readingJournal.title,
             content = readingJournal.content,
             recordReject = readingJournal.recordReject,
-            isRejected = readingJournal.isRejected,
+            readingJournalType = readingJournal.readingJournalType,
             teacherName = teacher.queryTeacherName(),
             teacherSubject = teacher.subject,
         )

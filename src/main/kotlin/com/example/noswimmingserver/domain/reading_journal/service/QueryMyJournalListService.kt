@@ -27,7 +27,7 @@ class QueryMyJournalListService(
                         bookId = it.bookId,
                         bookNum = it.bookNum,
                         recordReject = it.recordReject,
-                        isRejected = it.isRejected
+                        readingJournalType = it.readingJournalType,
                     )
                 }
         )

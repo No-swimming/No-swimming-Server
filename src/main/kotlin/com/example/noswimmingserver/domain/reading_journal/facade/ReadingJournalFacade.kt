@@ -11,8 +11,10 @@ class ReadingJournalFacade(
     private val readingJournalRepository: ReadingJournalRepository,
 ) {
 
-    fun getReadingJournalById(readingJournalId: Long): ReadingJournal {
-        return readingJournalRepository.findByIdOrNull(readingJournalId)
+    fun getReadingJournalById(readingJournalId: Long): ReadingJournal =
+        readingJournalRepository.findByIdOrNull(readingJournalId)
             ?: throw ReadingJournalNotFoundException
-    }
+
+    fun getReadingJournalListById(readingJournalIdList: List<Long>): MutableIterable<ReadingJournal> =
+        readingJournalRepository.findAllById(readingJournalIdList)
 }

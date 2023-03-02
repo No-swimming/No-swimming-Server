@@ -39,8 +39,8 @@ class StudentController(
 
     @GetMapping("/list")
     fun queryStudentListByGradeAndClassNum(
-        @RequestParam grade: Int,
-        @RequestParam classNum: Int,
+        @RequestParam grade: Int?,
+        @RequestParam classNum: Int?,
     ): QueryStudentList {
         return queryStudentListService.execute(grade, classNum)
     }

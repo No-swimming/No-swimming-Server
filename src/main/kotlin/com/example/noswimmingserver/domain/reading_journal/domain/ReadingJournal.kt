@@ -72,4 +72,8 @@ class ReadingJournal(
         this.content = content
         this.teacher = teacher
     }
+
+    fun changeToEndJournal() {
+        this.recordReject = true
+    }
 }

@@ -1,5 +1,6 @@
 package com.example.noswimmingserver.domain.reading_journal.presentation
 
+import com.example.noswimmingserver.domain.reading_journal.presentation.dto.request.ChangeToEndJournalRequest
 import com.example.noswimmingserver.domain.reading_journal.presentation.dto.request.CreateReadingJournalRequest
 import com.example.noswimmingserver.domain.reading_journal.presentation.dto.request.UpdateReadingJournalRequest
 import com.example.noswimmingserver.domain.reading_journal.presentation.dto.response.QueryJournalDetailResponse
@@ -50,6 +51,16 @@ class ReadingJournalController(
         request: UpdateReadingJournalRequest,
     ) {
         updateReadingJournalService.execute(readingJournalId, request)
+    }
+
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @PutMapping("/all")
+    fun changeToEndAllJournal(
+        @RequestBody
+        @Valid
+        request: ChangeToEndJournalRequest,
+    ) {
+        changeToEndJournalService.execute(request)
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)

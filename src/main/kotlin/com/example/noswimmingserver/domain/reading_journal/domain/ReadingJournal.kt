@@ -36,7 +36,7 @@ class ReadingJournal(
 
     recordReject: Boolean,
 
-    isRejected: Boolean,
+    readingJournalType: ReadingJournalType,
 
     teacher: Teacher,
 ) {
@@ -60,11 +60,11 @@ class ReadingJournal(
         protected set
 
     @field:NotNull
-    var isRejected = isRejected
+    var readingJournalType = readingJournalType
         protected set
 
     fun submitJournal() {
-        this.isRejected = true
+        this.readingJournalType = ReadingJournalType.SUBMIT
     }
 
     fun editReadingJournal(title: String, content: String, teacher: Teacher) {

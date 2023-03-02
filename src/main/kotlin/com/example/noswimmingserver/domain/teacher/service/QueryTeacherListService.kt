@@ -15,15 +15,14 @@ class QueryTeacherListService(
     fun execute(): QueryTeacherList {
         val teacherList = teacherRepository.queryTeacherListOrderByTeacherId()
 
-        return QueryTeacherList(
-            teacherList
-                .map {
-                    QueryTeacherElement(
-                        teacherId = it.userId,
-                        teacherName = it.queryTeacherName(),
-                        subject = it.subject!!,
-                    )
-                }
-        )
+        val response = teacherList.map {
+            QueryTeacherElement(
+                teacherId = it.userId,
+                teacherName = it.queryTeacherName(),
+                subject = it.subject
+            )
+        }
+
+        return QueryTeacherList(response)
     }
 }

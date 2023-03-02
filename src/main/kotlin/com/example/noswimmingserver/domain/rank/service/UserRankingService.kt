@@ -15,16 +15,14 @@ class UserRankingService(
     fun queryUserRanking(): QueryUserRankingList {
         val userRankingList = userRankRepository.queryUserRanking()
 
-        return QueryUserRankingList(
-            userRankingList = userRankingList
+        val response = userRankingList.map {
+            QueryUserRankingElement(
+                name = it.name,
+                grade = it.grade,
+                journalCount = it.journalCount,
+            )
+        }
 
-                .map {
-                    QueryUserRankingElement(
-                        name = it.name!!,
-                        grade = it.grade,
-                        journalCount = it.journalCount,
-                    )
-                }
-        )
+        return QueryUserRankingList(response)
     }
 }

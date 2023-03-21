@@ -17,6 +17,7 @@ class CustomReadingJournalRepositoryImpl(
                 QQueryJournalVO(
                     book.id,
                     book.num,
+                    readingJournal.title,
                     readingJournal.recordReject,
                     readingJournal.readingJournalType,
                 )

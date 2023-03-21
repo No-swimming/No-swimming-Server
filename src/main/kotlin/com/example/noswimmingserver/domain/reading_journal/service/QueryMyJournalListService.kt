@@ -26,6 +26,7 @@ class QueryMyJournalListService(
                     QueryMyJournalElement(
                         bookId = it.bookId,
                         bookNum = it.bookNum,
+                        title = it.title,
                         recordReject = it.recordReject,
                         readingJournalType = it.readingJournalType,
                     )

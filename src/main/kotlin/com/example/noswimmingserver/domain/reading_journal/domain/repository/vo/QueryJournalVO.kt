@@ -6,6 +6,7 @@ import com.querydsl.core.annotations.QueryProjection
 class QueryJournalVO @QueryProjection constructor(
     val bookId: Long,
     val bookNum: Int,
+    val title: String,
     val recordReject: Boolean,
     val readingJournalType: ReadingJournalType,
 )

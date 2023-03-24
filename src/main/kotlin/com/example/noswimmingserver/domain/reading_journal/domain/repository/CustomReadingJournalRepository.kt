@@ -4,7 +4,7 @@ import com.example.noswimmingserver.domain.reading_journal.domain.repository.vo.
 
 interface CustomReadingJournalRepository {
 
-    fun queryMyReadingJournalList(userId: Long): List<QueryJournalVO>
+    fun queryReadingJournalListByUserId(userId: Long): List<QueryJournalVO>
 
     fun countMyReadingJournal(userId: Long): Long
 }

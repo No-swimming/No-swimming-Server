@@ -3,6 +3,7 @@ package com.example.noswimmingserver.domain.teacher.presentation
 import com.example.noswimmingserver.domain.common_user.presentation.dto.response.TokenResponse
 import com.example.noswimmingserver.domain.teacher.presentation.dto.request.TeacherSignInRequest
 import com.example.noswimmingserver.domain.teacher.presentation.dto.request.UpdateTeacherInfoRequest
+import com.example.noswimmingserver.domain.teacher.presentation.dto.response.QueryStudentJournalList
 import com.example.noswimmingserver.domain.teacher.presentation.dto.response.QueryTeacherList
 import com.example.noswimmingserver.domain.teacher.presentation.dto.response.TeacherAccountResponse
 import com.example.noswimmingserver.domain.teacher.service.*
@@ -17,6 +18,7 @@ class TeacherController(
     private val updateTeacherInfoService: UpdateTeacherInfoService,
     private val teacherSignInService: TeacherSignInService,
     private val queryTeacherListService: QueryTeacherListService,
+    private val queryStudentJournalListService: QueryStudentJournalListService,
     private val teacherLogOutService: TeacherLogOutService,
 ) {
 
@@ -46,5 +48,10 @@ class TeacherController(
     @GetMapping("/list")
     fun queryTeacherList(): QueryTeacherList {
         return queryTeacherListService.execute()
+    }
+
+    @GetMapping("/student/journal")
+    fun queryStudentJournalByUserId(@RequestParam userId: Long): QueryStudentJournalList {
+        return queryStudentJournalListService.execute(userId)
     }
 }

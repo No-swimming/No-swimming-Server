@@ -15,22 +15,18 @@ class QueryMyJournalListService(
 
     @Transactional(readOnly = true)
     fun execute(): QueryMyJournalList {
-        val user = securityFacade.getCurrentUser()
+        val journalList = readingJournalRepository.queryReadingJournalListByUserId(securityFacade.getCurrentUser().id)
 
-        val journalList = readingJournalRepository.queryMyReadingJournalList(user.id)
+        val response = journalList.map {
+            QueryMyJournalElement(
+                bookId = it.bookId,
+                bookNum = it.bookNum,
+                title = it.title,
+                recordReject = it.recordReject,
+                readingJournalType = it.readingJournalType,
+            )
+        }
 
-        return QueryMyJournalList(
-            journalList = journalList
-
-                .map {
-                    QueryMyJournalElement(
-                        bookId = it.bookId,
-                        bookNum = it.bookNum,
-                        title = it.title,
-                        recordReject = it.recordReject,
-                        readingJournalType = it.readingJournalType,
-                    )
-                }
-        )
+        return QueryMyJournalList(response)
     }
 }

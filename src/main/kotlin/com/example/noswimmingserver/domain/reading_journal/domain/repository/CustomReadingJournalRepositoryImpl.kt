@@ -11,7 +11,7 @@ class CustomReadingJournalRepositoryImpl(
     private val jpaQueryFactory: JPAQueryFactory
 ) : CustomReadingJournalRepository {
 
-    override fun queryMyReadingJournalList(userId: Long): List<QueryJournalVO> {
+    override fun queryReadingJournalListByUserId(userId: Long): List<QueryJournalVO> {
         return jpaQueryFactory
             .select(
                 QQueryJournalVO(

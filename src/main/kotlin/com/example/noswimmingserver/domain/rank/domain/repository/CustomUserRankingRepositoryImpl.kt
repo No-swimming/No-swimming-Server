@@ -9,31 +9,30 @@ class CustomUserRankingRepositoryImpl(
     private val jpaQueryFactory: JPAQueryFactory
 ) : CustomUserRankingRepository {
 
-    override fun queryUserRanking(): List<UserRank> {
-        return jpaQueryFactory
+    override fun queryUserRanking(): List<UserRank> =
+        jpaQueryFactory
             .selectFrom(userRank)
             .orderBy(userRank.journalCount.desc())
             .fetch()
-    }
 
-    override fun countAllUsers(): Long = // 전체 유저 수 구하기
+    override fun countAllUsers(): Int = // 전체 유저 수 구하기
         jpaQueryFactory
-            .select(userRank.count())
+            .select(userRank.userId)
             .from(userRank)
-            .fetchFirst()
+            .fetch().size
 
-    override fun countLessThanMe(userId: Long): Long = // 내 독서록 수보다 적게 작성한 사람 수 구하기
+    override fun countLessThanMe(userId: Long): Int = // 내 독서록 수보다 적게 작성한 사람 수 구하기
         jpaQueryFactory
-            .select(userRank.count())
+            .select(userRank.userId)
             .from(userRank)
             .innerJoin(user)
             .on(userRank.journalCount.lt(countMyJournal(userId)))
-            .fetchFirst()
+            .fetch().size
 
-    private fun countMyJournal(userId: Long): Long = // 내 독서록 수 구하기
+    private fun countMyJournal(userId: Long): Int = // 내 독서록 수 구하기
         jpaQueryFactory
-            .select(userRank.count())
+            .select(userRank.userId)
             .from(userRank)
             .where(userRank.userId.eq(userId))
-            .fetchFirst()
+            .fetch().size
 }

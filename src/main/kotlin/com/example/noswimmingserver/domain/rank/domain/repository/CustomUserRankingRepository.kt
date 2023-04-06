@@ -6,7 +6,7 @@ interface CustomUserRankingRepository {
 
     fun queryUserRanking(): List<UserRank>
 
-    fun countAllUsers(): Long
+    fun countAllUsers(): Int
 
-    fun countLessThanMe(userId: Long): Long
+    fun countLessThanMe(userId: Long): Int
 }

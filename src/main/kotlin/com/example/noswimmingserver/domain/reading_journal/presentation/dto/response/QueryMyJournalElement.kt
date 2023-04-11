@@ -8,4 +8,5 @@ data class QueryMyJournalElement(
     val title: String,
     val recordReject: Boolean,
     val readingJournalType: ReadingJournalType,
+    val readingJournalId: Long,
 )

@@ -22,6 +22,7 @@ class QueryStudentJournalListService(
                 title = it.title,
                 recordReject = it.recordReject,
                 readingJournalType = it.readingJournalType,
+                readingJournalId = it.readingJournalId,
             )
         }
 

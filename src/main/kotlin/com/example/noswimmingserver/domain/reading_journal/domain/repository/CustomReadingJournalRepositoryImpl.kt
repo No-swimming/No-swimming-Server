@@ -20,6 +20,7 @@ class CustomReadingJournalRepositoryImpl(
                     readingJournal.title,
                     readingJournal.recordReject,
                     readingJournal.readingJournalType,
+                    readingJournal.id
                 )
             )
             .from(readingJournal)

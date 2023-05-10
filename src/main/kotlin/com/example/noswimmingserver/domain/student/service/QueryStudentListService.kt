@@ -26,6 +26,7 @@ class QueryStudentListService(
             }
             .map { student ->
                 QueryStudentElement(
+                    userId = student.userId,
                     grade = student.grade,
                     classNum = student.classNum,
                     number = student.number,

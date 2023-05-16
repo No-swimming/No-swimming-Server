@@ -6,4 +6,5 @@ data class QueryStudentElement(
     val classNum: Int,
     val number: Int,
     val name: String,
+    val profileNum: Int?,
 )

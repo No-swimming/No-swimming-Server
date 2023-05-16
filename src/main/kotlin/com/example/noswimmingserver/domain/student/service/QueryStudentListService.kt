@@ -31,6 +31,7 @@ class QueryStudentListService(
                     classNum = student.classNum,
                     number = student.number,
                     name = student.queryStudentName(),
+                    profileNum = student.user.profileNum,
                 )
             }
 

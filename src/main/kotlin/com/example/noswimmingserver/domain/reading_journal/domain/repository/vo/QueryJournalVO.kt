@@ -10,4 +10,5 @@ class QueryJournalVO @QueryProjection constructor(
     val recordReject: Boolean,
     val readingJournalType: ReadingJournalType,
     val readingJournalId: Long,
+    val userId: Long,
 )

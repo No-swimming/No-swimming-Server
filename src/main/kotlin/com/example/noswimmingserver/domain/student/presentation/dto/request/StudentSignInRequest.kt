@@ -6,7 +6,4 @@ data class StudentSignInRequest(
 
     @field:NotBlank
     val email: String,
-
-    @field:NotBlank
-    val password: String
 )

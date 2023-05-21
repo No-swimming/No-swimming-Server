@@ -32,12 +32,13 @@ class QueryMyInfoService(
             number = student.number,
             countRejectBook = countUsersRejectBook(user),
             countReadBook = countUsersReadBook(user),
-            myRank = queryMyRank(user)
+            myRank = queryMyRank(user),
+            profileNum = user.profileNum,
         )
     }
 
     private fun queryMyRank(user: User) =
-        (userRankRepository.countAllUsers().toInt() - userRankRepository.countLessThanMe(user.id).toInt()) + 1
+        (userRankRepository.countAllUsers() - userRankRepository.countLessThanMe(user.id)) + 1
 
     private fun countUsersReadBook(user: User) = myBookRepository.countByUserId(user.id).toInt()
 

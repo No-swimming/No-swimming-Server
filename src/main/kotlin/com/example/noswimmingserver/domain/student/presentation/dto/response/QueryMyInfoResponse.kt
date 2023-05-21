@@ -9,4 +9,5 @@ data class QueryMyInfoResponse(
     val countRejectBook: Int,
     val countReadBook: Int,
     val myRank: Int,
+    val profileNum: Int?,
 )

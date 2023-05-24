@@ -24,6 +24,7 @@ class QueryStudentJournalListService(
                 readingJournalType = it.readingJournalType,
                 readingJournalId = it.readingJournalId,
                 userId = it.userId,
+                createdAt = it.createdAt,
             )
         }
 

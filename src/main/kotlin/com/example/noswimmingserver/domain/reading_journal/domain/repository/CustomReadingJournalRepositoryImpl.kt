@@ -21,7 +21,8 @@ class CustomReadingJournalRepositoryImpl(
                     readingJournal.recordReject,
                     readingJournal.readingJournalType,
                     readingJournal.id,
-                    readingJournal.student.userId
+                    readingJournal.student.userId,
+                    readingJournal.createdAt,
                 )
             )
             .from(readingJournal)
